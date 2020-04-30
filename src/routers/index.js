@@ -8,6 +8,14 @@ const LayOut = () => import('../views/LayOut.vue')
 
 //配置路由文件
 let routes = [
+  {
+    path: '/',
+    redirect: '/mainLayout',
+  },
+  {
+    path: '/home',
+    component: Home,
+  },
   { path: '/mainLayout',
     component: LayOut,
     children: [
@@ -23,7 +31,8 @@ let routes = [
 //创建路由
 export default {
     routes,
-    base: '/practice',
+    base: '/practice/',
+    // base: '/practice',  和上面的效果一样。但又什么区别呢？
     mode: 'history'
 }
 

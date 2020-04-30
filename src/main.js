@@ -8,6 +8,7 @@ import routeConfig from './routers'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import { setCookie, Day30Ago, checkStartEndTime, deepCopy, pinYingChange } from './utils/utils'
+import TabsRouter from './components/tabsRouter'
 
 import App from './App.vue'
 import ElementUI from 'element-ui';

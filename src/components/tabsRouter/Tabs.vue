@@ -1,6 +1,6 @@
 <template>
   <div>
-    首页
+    标签页面
   </div>
 </template>
 
