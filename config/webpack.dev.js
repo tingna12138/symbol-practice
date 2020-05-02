@@ -12,9 +12,14 @@ module.exports = merge(base, {
     devServer: {
         port: 8080,// 默认端口是8080
         stats: 'errors-only',   // + 只打印报错信息
-        // history模式下的url会请求到服务器端，但是服务器端并没有这一个资源文件，就会返回404，所以需要配置这一项
+        // history模式下的url会请求到服务器端，但是服务器端并没有这一个资源文件，就会返回404.所以需要配置这一项,使当出现404报错或者请求特定的url时，跳转到指定的页面。
+        // 服务器会把请求路径交给router路由，路由在对路径进行解析
 		historyApiFallback: {
-			index: path.join(__dirname, '../practice/index.html') //与output的publicPath有关(HTMLplugin生成的html默认为index.html)
-		}
+          index: '/practice/index.html'   // 听说不要在practice前面加 .
+          // rewrites: [{
+          //     from: /.*/g,
+          //     to: '/practice/index.html'
+          // }]
+          }
    },
 })

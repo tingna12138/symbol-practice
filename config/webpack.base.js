@@ -29,7 +29,7 @@ module.exports = {
      },
      output: {
          filename:'[name].js',
-         path: path.resolve(__dirname, '../practice'),
+         path: path.resolve(__dirname, '../practice/'),
          publicPath: 'http://localhost:8080/practice/'
      },
     // mode: 'development',
@@ -113,19 +113,21 @@ module.exports = {
     //加载插件
     plugins: [
         new ExtractTextPlugin('style.css'),
-
         new ExtractTextPlugin("./style.css"),
-        // + 新增配置
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, "../practice/index.html")	// template指定默认html模板
-        }),
 
         // 调用清除打包目录插件
         new CleanWebpackPlugin(),
         
-        // new HtmlWebpackPlugin({
-        //     template: "public/index.html"
-        // }),
+        new HtmlWebpackPlugin({
+        //   template: '/practice/index.html',
+          // 指定生成的html文件使用的模板，默认会使用src/index.ejs
+           templateContent: `
+             <html>
+               <body>
+                 <div id="app"></div>
+               </body>
+             </html>`
+        }),
 
         // vue加载器插件
         new VueLoaderPlugin()

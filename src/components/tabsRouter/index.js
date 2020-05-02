@@ -1,8 +1,8 @@
 import Tabs from './Tabs.vue'
 
 Tabs.install = function(Vue, options) {
-  Vue.components(Tabs)
-  // Vue.components('TabsRouter', Tabs)
+  console.log(options)
+  Vue.component('TabsRouter', Tabs)
 }
 
 export default Tabs

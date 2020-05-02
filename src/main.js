@@ -15,6 +15,7 @@ import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios)
+Vue.use(TabsRouter, {})
 
 console.log(routeConfig)
 const router = new VueRouter(routeConfig)
