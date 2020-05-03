@@ -9,15 +9,16 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import { setCookie, Day30Ago, checkStartEndTime, deepCopy, pinYingChange } from './utils/utils'
 import TabsRouter from './components/tabsRouter'
+import allTabsComponents from './routers/masterComponents'
 
 import App from './App.vue'
 import ElementUI from 'element-ui';
 Vue.use(ElementUI);
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios)
-Vue.use(TabsRouter, {})
+Vue.use(TabsRouter, { tabsMap: allTabsComponents })
+Vue.prototype.$ade = 2
 
-console.log(routeConfig)
 const router = new VueRouter(routeConfig)
 
 //声明一个全局过滤器（也可以声明局部过滤器，自己看文档）
