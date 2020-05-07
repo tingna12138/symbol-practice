@@ -1,12 +1,12 @@
 <template>
   <div>
-    <el-tabs v-model="activeTab" type="card" @tab-remove="removeTab">
-      <el-tab-pane label="首页" name="0"/>
+    <el-tabs v-model="activeTab" type="card" @tab-remove="removeTab" @tab-click="tabActive">
+      <el-tab-pane label="首页" name="HOME"/>
       <el-tab-pane
         v-for="(item, index) in tabsList"
         :key="index"
-        :label="item.label"
-        :name="item.name"
+        :label="item.tabTitle"
+        :name="item.tabCode"
         closable
       />
     </el-tabs>
@@ -38,7 +38,16 @@ export default {
       return this.param
     }
   },
+  watch: {
+    tabsList (newValue,oldValue) {
+      return newValue
+    }
+  },
   methods: {
+    // 切换到tab时触发
+    tabActive (tabParam) {
+      console.log(tabParam)
+    },
     // 开启标签页
     addTab(tabParam) {
       const { tabTitle, tabCode, param = null } = tabParam
@@ -54,7 +63,7 @@ export default {
       
       this.addKeepList(tabCode).then(mes => {
         if (mes === 'add') {
-          this.tabsList.push({ label: tabTitle, name: tabCode })
+          this.tabsList.push({ tabTitle, tabCode })
         }
         this.$nextTick(() => {
           this.activeTab = tabCode
@@ -64,16 +73,21 @@ export default {
     },
     // 关闭某个菜单项
     removeTab(targetName) {
+      // 从 tabList 和 keepAliveLIst去掉这个tab
       let tabs = this.tabsList;
-      let activeName = this.activeTab;
-      let nextTabs = tabs.slice(targetName)
-      let preTabs = tabs.slice(0,targetName-1)
-      nextTabs.length > 0 ? nextTabs.forEach(tab => tab.name = tab.name - 1 + '') : nextTabs = []
-      tabs = preTabs.concat(nextTabs)
-      this.activeName = targetName < this.activeName ? this.activeName -- : this.activeName
-      this.tabIndex --
+      let theIndex
+      tabs.some((tab, index) => {
+        if(tab.tabCode === targetName) {
+          theIndex = index
+          this.activeTab = index === (tabs.length - 1) ? 'HOME' : tabs[index+1].tabCode
+          this.setActiveTab()
+          return true
+        }
+      })
+      tabs.splice(theIndex, 1)
       this.tabsList = tabs
-      console.log(tabs)
+      this.keepAliveLIst.splice(this.keepAliveLIst.indexOf(targetName), 1)
+      // console.log(this.activeTab, this.keepAliveLIst, this.tabsList)
     },
 
     // 改变缓存队列，返回一个promise对象，操作缓存后再做数组跳转

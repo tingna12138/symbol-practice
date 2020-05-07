@@ -1,11 +1,11 @@
 const HOME = () => import('../views/Home.vue')  // 首页
-const SUPER_MARKET = () => import('../views/superMarket/SuperMarket.vue')  // 首页
+const SUPER_MARKET = () => import('../views/superMarket/SuperMarket.vue')  // 超市购物
 const CARE_HAIR = () => import('../views/takeCare/CareHair.vue')  // 品牌商城-养护-护发
 const CARE_FACE = () => import('../views/takeCare/CareFace.vue')  // 品牌商城-养护-面部护理
 const BEAUTY_LEG = () => import('../views/takeCare/BeautyLeg.vue')  // 品牌商城-养护-美腿
 const BRAND = () => import('../views/brand/Brand.vue')  // 品牌商城-大牌优惠
 const ABOUT_US = () => import('../views/AboutUs.vue')  // 关于我们
-const ORDER_MANAGE = () => import('../views/orderManage/OrderManage.vue')  // 关于我们
+const ORDER_MANAGE = () => import('../views/orderManage/OrderManage.vue')  // 订单管理
 
 export const Home = 'HOME'
 export const SuperMarket = 'SUPER_MARKET'
