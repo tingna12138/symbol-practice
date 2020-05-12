@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="about-us">
     关于我们
     <input type="text" placeholder="write somthing for us" v-model="value">
   </div>
@@ -17,3 +17,9 @@ export default {
   }
 }
 </script>
+
+<style lang="styl" scoped>
+ .about-us
+   color: red
+
+</style>

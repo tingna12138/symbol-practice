@@ -2,7 +2,7 @@
   <div>
     <el-container>
       <el-header>
-        <Menu :data="data"/>
+        <Menu :data="data" />
       </el-header>
       <el-main>
         <!-- <tabs></tabs> -->
@@ -16,7 +16,7 @@
             {{item.content}}
           </el-tab-pane>
         </el-tabs> -->
-        <tabs-router/>
+        <tabs-router />
       </el-main>
     </el-container>
   </div>
@@ -27,34 +27,34 @@
 import Menu from '../components/layout/Menu.vue'
 
 export default {
-components: { Menu },
-data () {
-  return {
-    data: [],
-
-    editableTabsValue: '2',
-    editableTabs: [{
-      title: 'Tab 1',
-      name: '1',
-      content: 'Tab 1 content'
-    }, {
-      title: 'Tab 2',
-      name: '2',
-      content: 'Tab 2 content'
-    }],
-    tabIndex: 2
-  }
-},
-mounted () {
-  this.axios.get('/sql/menu.json').then((res) => {
+  components: { Menu },
+  data () {
+    return {
+      data: [],
+  
+      editableTabsValue: '2',
+      editableTabs: [{
+        title: 'Tab 1',
+        name: '1',
+        content: 'Tab 1 content'
+      }, {
+        title: 'Tab 2',
+        name: '2',
+        content: 'Tab 2 content'
+      }],
+      tabIndex: 2
+    }
+  },
+  mounted () {
+    this.axios.get('/sql/menu.json').then((res) => {
       console.log(res)
       const { status, data = [] } = res
       this.data = data
     })
-},
-methods: {
-  handleSelect () {}
-}
+  },
+  methods: {
+    handleSelect () {}
+  }
 }
 </script>
 

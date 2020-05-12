@@ -21,7 +21,7 @@
 
 <script>
 export default {
- data() {
+  data() {
     return {
       keepAliveLIst: [],
       activeTab: 'HOME',
@@ -98,9 +98,9 @@ export default {
         if (isOpen) {
           resolve('isOpen')
         } else {
-         // 情况2： 这个标签没有被打开：打开新的标签
-           this.keepAliveLIst.push(code)
-           resolve('add')
+          // 情况2： 这个标签没有被打开：打开新的标签
+          this.keepAliveLIst.push(code)
+          resolve('add')
         }
       })
     },

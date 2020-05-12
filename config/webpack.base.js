@@ -38,13 +38,9 @@ module.exports = {
     
     //模块加载器配置
     module: {
-        //下面所配置的模块资源，都是针对在入口文件中有引入的文件，
-        //且不用管这些模块资源原本在那个文件夹下面
         rules: [
             //配置css文件加载模块
             {   
-                //疑问：匹配所有在entry文件里引入的所有css文件
-                //匹配所有的以 .css结尾的文件
                 test: /\.css$/,
                 // use: [
                 //     //把css代码写道网页中
@@ -59,31 +55,40 @@ module.exports = {
                     use: "css-loader"
                   })
             },
-            // 加载less文件的模块加载器
+            // 处理.styl文件和.vue文件中的lang="styl"
+            {
+              test: /\.styl$/,
+              use: ['style-loader', 'css-loader', 'stylus-loader']
+            },
+            // less
             {
                 test:/\.less$/,
-                // use:[
-                //     //将文件写到网页中
-                //     'style-loader',
-                //     //读取less文件
-                //     'css-loader',
-                //     //编译less文件
-                //     'less-loader'
-
-                //     /**  以下操作不可行
-                //      * { loader: 'style-loader' },
-                //     { loader: 'css-loader' ,
-                //       options: {
-                //           publicPath: './css',
-                //           outputPath: 'css'
-                //       } },
-                //     { loader: 'less-loader' },
-                //      *  */
-                // ]
+              
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: ["css-loader", "less-loader"]
                   })
+            },
+            // 将es6语法转为es5语法
+            {
+              test: /\.m?js$/,
+              exclude: /(node_modules|bower_components)/,
+              use: {
+                loader: 'babel-loader',
+                options: {
+                  presets: ['@babel/preset-env']
+                }
+              }
+            },
+            // 使用eslint格式化代码
+            {
+              test: /\.js$/,
+              enforce: "pre",
+              exclude: /node_modules/,
+              loader: "eslint-loader",
+              options: {
+                // eslint options (if necessary)
+              }
             },
             //加载图片
             {

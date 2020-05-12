@@ -1,12 +1,11 @@
 <template>
   <div class="box" ref="box">
-     <div class="title">订单管理首页</div>
-     <div class="cotent">内容部分</div>
+    <div class="title">订单管理首页 </div>
+    <div class="cotent">内容部分 </div>
   </div>
 </template>
 
 <script>
-    
 export default {
   data() {
     return {

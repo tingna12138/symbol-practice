@@ -4,6 +4,7 @@
 // import Vue from 'vue'
 import Vue from 'vue/dist/vue.esm.js'
 import VueRouter from "vue-router";
+import Vuex from 'vuex'
 import routeConfig from './routers'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -13,6 +14,7 @@ import allTabsComponents from './routers/masterComponents'
 
 import App from './App.vue'
 import ElementUI from 'element-ui';
+Vue.use(Vuex)
 Vue.use(ElementUI);
 Vue.use(VueRouter);
 Vue.use(VueAxios, axios)
@@ -20,16 +22,26 @@ Vue.use(TabsRouter, { tabsMap: allTabsComponents })
 Vue.prototype.$ade = 2
 
 const router = new VueRouter(routeConfig)
+const store = new Vuex.store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  }
+})
 
 //声明一个全局过滤器（也可以声明局部过滤器，自己看文档）
-  //第一个参数： 过滤器的名字
-  //第二个参数：回调函数(参数为默认的，是传进来的数据)
+//第一个参数： 过滤器的名字
+//第二个参数：回调函数(参数为默认的，是传进来的数据)
 Vue.filter('channelFilter', value=>{
-   switch (value) {
-     case '0': return '早上好'
-     case '1': return '中午好'
-     case '2': return '晚上好'
-   }
+  switch (value) {
+  case '0': return '早上好'
+  case '1': return '中午好'
+  case '2': return '晚上好'
+  }
 } )
 
 Vue.prototype.$_permission = function (val) {
@@ -63,7 +75,8 @@ router.beforeEach (( to, from, next )=>{
 //   }).$mount("#app")
 
 new Vue({
-    el: '#app',
-    router,
-    render: h => h(App)
-  })
+  el: '#app',
+  router,
+  store,
+  render: h => h(App)
+})
