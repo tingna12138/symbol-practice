@@ -6,6 +6,7 @@ import Vue from 'vue/dist/vue.esm.js'
 import VueRouter from "vue-router";
 import Vuex from 'vuex'
 import routeConfig from './routers'
+import { state, mutations, getters, modules } from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import { setCookie, Day30Ago, checkStartEndTime, deepCopy, pinYingChange } from './utils/utils'
@@ -22,16 +23,7 @@ Vue.use(TabsRouter, { tabsMap: allTabsComponents })
 Vue.prototype.$ade = 2
 
 const router = new VueRouter(routeConfig)
-const store = new Vuex.store({
-  state: {
-    count: 0
-  },
-  mutations: {
-    increment (state) {
-      state.count++
-    }
-  }
-})
+const store = new Vuex.Store({ state, mutations, getters, modules })
 
 //声明一个全局过滤器（也可以声明局部过滤器，自己看文档）
 //第一个参数： 过滤器的名字
