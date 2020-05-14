@@ -47,17 +47,6 @@ export default {
       tabIndex: 2
     }
   },
-  computed: {
-    //  ...mapState({
-    //   count: (state) => state.count,
-    //   countAir: 'count',  // 通过字符串 'count'传参，它就代表state.count 
-    // }),
-    // ...mapState(['count'])  // 也可以通过这种方式传参，直接获取state对象里的count属性
-    // 获取common模块的状态
-    // ...mapState({
-    //   titleForCommon: (state) => state.common.title
-    // })
-  },
   mounted () {
     this.axios.get('/sql/menu.json').then((res) => {
       console.log(res)

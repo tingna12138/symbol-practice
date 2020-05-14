@@ -1,21 +1,30 @@
+import * as types from '../mutation-type'
+import { action } from '../actions'
+import { APIMutation } from '../mutations'
+
 const state = {
   title: '首页'
 }
 
-const getters = {
-  sumWithRootCount (state, getters, rootState) {
-    console.log(state, getters, rootState)
-    return 1
-  }
-}
+const getters = {}
 
 const mutations = {
-  writeTitle (state, str2) {
-    console.log(state, str2, str3)
-  }
+  ...APIMutation(types.GET_HOME_DATA),  // 用于处理每个请求的通用方法
+
+   [types.CHANGE_USER_NAME] (state, param) {  // 这个模块独有的mutations方法，用于操作局部状态
+     console.log(state, param)
+   }
 }
 
-const actions = {}
+const actions = {
+  getHomeData ({ commit }, request) {
+    return action(
+      { commit },
+      types.GET_HOME_DATA,
+      {}
+    )
+  },
+}
 
 export default {
   namespaced: true,

@@ -1,3 +1,4 @@
+import actions from './actions'
 export const state = {
   title: '总的vuex'
 }
@@ -9,12 +10,6 @@ export const mutations = {
   }
 }
 
-export const actions = {
-  increment (state) {
-    state.count++
-  }
-}
-
 export const getters = {
   doneTodos: state => {
     return 2
@@ -23,4 +18,12 @@ export const getters = {
 
 export const modules = {
   common,
+}
+
+export default {
+  state,
+  mutations,
+  getters,
+  modules,
+  actions
 }
