@@ -60,7 +60,6 @@ export default {
       if (param) {
         this.param[tabCode] = param
       }
-      
       this.addKeepList(tabCode).then(mes => {
         if (mes === 'add') {
           this.tabsList.push({ tabTitle, tabCode })

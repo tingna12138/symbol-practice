@@ -7,8 +7,6 @@ import VueRouter from "vue-router";
 import Vuex from 'vuex'
 import routeConfig from './routers'
 import storeConf from './store'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
 import { setCookie, Day30Ago, checkStartEndTime, deepCopy, pinYingChange } from './utils/utils'
 import TabsRouter from './components/tabsRouter'
 import allTabsComponents from './routers/masterComponents'
@@ -18,7 +16,6 @@ import ElementUI from 'element-ui';
 Vue.use(Vuex)
 Vue.use(ElementUI);
 Vue.use(VueRouter);
-Vue.use(VueAxios, axios)
 Vue.use(TabsRouter, { tabsMap: allTabsComponents })
 Vue.prototype.$ade = 2
 

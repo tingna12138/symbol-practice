@@ -1,6 +1,6 @@
 import * as types from '../mutation-type'
-import { action } from '../actions'
 import { APIMutation } from '../mutations'
+import { action } from '../actions'
 
 const state = {
   title: '首页'
@@ -17,11 +17,15 @@ const mutations = {
 }
 
 const actions = {
-  getHomeData ({ commit }, request) {
+  getHomeData ({ commit }, mutation, request) {
     return action(
       { commit },
       types.GET_HOME_DATA,
-      {}
+      {
+        path: 'http://localhost:8080/sql/menu.json',
+        method: 'GET'
+        // params
+      }
     )
   },
 }

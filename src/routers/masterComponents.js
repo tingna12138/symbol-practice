@@ -1,8 +1,9 @@
 import tabComponents from './tabComponents'  // 标签页
-console.log(12345, tabComponents)
+import practiceComponents from './practiceComponents'  // 标签页
 
 const allComponents = {
-  ...tabComponents
+  ...tabComponents,
+  ...practiceComponents
 }
 
 export default allComponents

@@ -81,15 +81,15 @@ module.exports = {
               }
             },
             // 使用eslint格式化代码
-            {
-              test: /\.js$/,
-              enforce: "pre",
-              exclude: /node_modules/,
-              loader: "eslint-loader",
-              options: {
-                // eslint options (if necessary)
-              }
-            },
+            // {
+            //   test: /\.js$/,
+            //   enforce: "pre",
+            //   exclude: /node_modules/,
+            //   loader: "eslint-loader",
+            //   options: {
+            //     // eslint options (if necessary)
+            //   }
+            // },
             //加载图片
             {
                 test:/\.(png|jpg|jpeg|gif)$/,

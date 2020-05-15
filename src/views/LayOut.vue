@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="background:red;height:30px;width:70px" @click="clickDiv">点击</div>
+    <!-- <div style="background:red;height:30px;width:70px" @click="clickDiv">点击</div> -->
     <el-container>
       <el-header>
         <Menu :data="data" />
@@ -26,7 +26,8 @@
 <script>
 // 组件命名规范： https://www.csdn.net/gather_2d/MtTaAg0sMzEwNC1ibG9n.html
 import Menu from '../components/layout/Menu.vue'
-import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
+import axios from 'axios'
 
 export default {
   components: { Menu },
@@ -48,23 +49,15 @@ export default {
     }
   },
   mounted () {
-    this.axios.get('/sql/menu.json').then((res) => {
-      console.log(res)
-      const { status, data = [] } = res
-      this.data = data
+    this.getHomeData().then(res => {
+      console.log('返回的数据', res)
+      const { code, payload = [] } = res
+      this.data = payload
     })
   },
   methods: {
-   
+    ...mapActions('common',['getHomeData']),
     handleSelect () {},
-    clickDiv () {
-      // console.log(this.$store)
-      // console.log(this.titleForCommon)  // common模块的title
-      // console.log(this.$store.state.common) // 直接获取某个模块的状态
-      // this.$store.commit('common/writeTitle')
-      // this.$store.getters['common/sumWithRootCount']
-      this.$store.getters['common/sumWithRootCount']
-    }
   }
 }
 </script>
