@@ -1,5 +1,5 @@
 <template>
-  
+  <div>异步和同步方法</div>
 </template>
 
 <script>

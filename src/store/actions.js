@@ -5,7 +5,7 @@ import CALL_API from '../apis'
  * @param:  { commit },  mutation:对应的同步方法的关键字, request: 异步请求的参数
  */
 
-export function action ({commit}, mutation, param) {
+export function action ({ commit }, mutation, param) {
   const { path, method, params } = param
   return CALL_API(path, method, params)
 }

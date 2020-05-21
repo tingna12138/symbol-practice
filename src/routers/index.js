@@ -5,12 +5,17 @@
 //引入vue文件所在路由
 const Home = () => import('../views/Home.vue')
 const LayOut = () => import('../views/LayOut.vue')
+const Login = () => import('../views/Login.vue')
 
 //配置路由文件
 let routes = [
   {
     path: '/',
     redirect: '/mainLayout',
+  },
+  {
+    path: '/login',
+    component: Login,
   },
   {
     path: '/home',

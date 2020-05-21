@@ -2,8 +2,19 @@
   <div>
     <!-- <div style="background:red;height:30px;width:70px" @click="clickDiv">点击</div> -->
     <el-container>
-      <el-header>
+      <el-header style="position:relative">
         <Menu :data="data" />
+        <div class="setting">
+          <el-dropdown trigger="click" @command="handleCommand">
+            <span class="el-dropdown-link" style="color:#999">
+              设置<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item command="userInfo" style="color:#999;font-size:14px">用户信息</el-dropdown-item>
+              <el-dropdown-item command="out" style="color:#999;font-size:14px">退出登录</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
       </el-header>
       <el-main>
         <!-- <tabs></tabs> -->
@@ -58,10 +69,23 @@ export default {
   methods: {
     ...mapActions('common',['getHomeData']),
     handleSelect () {},
+
+    // 查看用户详情或者退出
+    handleCommand (val) {
+      if (val === 'out') {
+        document.cookie = 'userId= '
+        this.$router.push({ path: '/login' })
+      }
+    }
   }
 }
 </script>
 
-<style>
-
+<style scoped>
+.setting {
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  right: 20px
+}
 </style>

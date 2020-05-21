@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const base = require('./webpack.base.js');
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = merge(base, {
     mode: "development",
@@ -22,4 +23,10 @@ module.exports = merge(base, {
           // }]
           }
    },
+   plugins: [
+       // 定义全局变量
+       new webpack.DefinePlugin({
+           'process.env': require('../build/dev.env')
+       })
+   ]
 })

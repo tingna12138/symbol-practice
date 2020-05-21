@@ -1,8 +1,10 @@
 import actions from './actions'
+import common from './modules/common'
+import login from './modules/login'
+
 export const state = {
   title: '总的vuex'
 }
-import common from './modules/common'
 
 export const mutations = {
   increment (state) {
@@ -18,6 +20,7 @@ export const getters = {
 
 export const modules = {
   common,
+  login
 }
 
 export default {

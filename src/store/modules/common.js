@@ -22,7 +22,7 @@ const actions = {
       { commit },
       types.GET_HOME_DATA,
       {
-        path: 'http://localhost:8080/sql/menu.json',
+        path: '/menu',
         method: 'GET'
         // params
       }

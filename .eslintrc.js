@@ -2,7 +2,8 @@ module.exports = {
   root: true, // 作用的目录是根目录
   parserOptions: {
     sourceType: 'module', // 按照模块的方式解析
-    ecmaVersion: 2017
+    ecmaVersion: 8
+    // { ecmaVersion: 6 }
   },
   extends: [
     // 'eslint:recommended',
@@ -10,8 +11,9 @@ module.exports = {
     // 'plugin:import/errors',
     // 'plugin:import/warnings',
     // https://eslint.vuejs.org/user-guide/#installation
-    'plugin:vue/vue3-recommended',
-    // 'standard'
+    // 'plugin:vue/vue3-recommended',
+    // 'standard',
+    // 'airbnb-base'
   ],
   plugins: [
     'vue',
@@ -23,6 +25,8 @@ module.exports = {
     es6: true
   },
   rules: {
+    // allow async-await
+    "generator-star-spacing": 0,
     // 自定义的规则
     "linebreak-style": [0 ,"error", "windows"],
     "indent": ['warn', 2],
@@ -39,6 +43,15 @@ module.exports = {
     "vue/html-closing-bracket-spacing": 0,
     "vue/order-in-components": 0,
     "vue/no-deprecated-slot-attribute": 0,
-    "vue/require-prop-types": 0
+    "vue/require-prop-types": 0,
+    // const优先
+    "prefer-const": 0,
+    "no-cond-assign": 1,
+    // 使用new关键字
+    "no-new": 0,
+    // 单个字母的时候单引号可以要，如：'Access': 'as'
+    "quote-props": 0,
+    "no-unused-expressions": 0,
+    "dot-notation": 0
   }
 }

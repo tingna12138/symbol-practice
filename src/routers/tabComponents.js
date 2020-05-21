@@ -1,4 +1,3 @@
-
 const HOME = () => import('../views/Home.vue')  // 首页
 const SUPER_MARKET = () => import('../views/superMarket/SuperMarket.vue')  // 超市购物
 const CARE_HAIR = () => import('../views/takeCare/CareHair.vue')  // 品牌商城-养护-护发
