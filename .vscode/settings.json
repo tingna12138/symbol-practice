@@ -1,0 +1,9 @@
+{
+    "git.ignoreLimitWarning": true,
+    "vetur.validation.template": false,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        { "language": "vue", "autoFix": true }
+      ]
+}

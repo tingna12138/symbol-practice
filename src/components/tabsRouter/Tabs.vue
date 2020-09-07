@@ -70,6 +70,29 @@ export default {
         })
       })
     },
+
+    // 开启标签页
+    addDynamicTab(tabParam) {
+      const { tabTitle, tabCode, dynamic } = tabParam
+      // 情况1：导航路由不存在，打印错误
+      if (!tabCode || tabCode.length < 4) {
+        console.error('导航菜单不存在')
+        return
+      }
+      // 保存传递过来的参数
+      if (param) {
+        this.param[tabCode] = param
+      }
+      this.addKeepList(tabCode).then(mes => {
+        if (mes === 'add') {
+          this.tabsList.push({ tabTitle, tabCode })
+        }
+        this.$nextTick(() => {
+          this.activeTab = tabCode
+          this.setActiveTab()
+        })
+      })
+    },
     // 关闭某个菜单项
     removeTab(targetName) {
       // 从 tabList 和 keepAliveLIst去掉这个tab

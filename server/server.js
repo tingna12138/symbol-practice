@@ -22,7 +22,7 @@ app.use(session({
 
 app.use((req,res,next)=>{
   console.log('请求进来了')
-  res.header("Access-Control-Allow-Origin", "*")
+  // res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type")
   res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
   res.header('Access-Control-Allow-Credentials','true')

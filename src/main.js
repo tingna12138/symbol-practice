@@ -40,13 +40,13 @@ Vue.prototype.$_permission = function (val) {
 }
 
 // 路由拦截
-router.beforeEach((to, from, next) => {
-  console.log('路由拦截', to, from)
-  if (to.fullPath !== '/login' && !getCookie('userId')) {
-    router.push({ path:'/login'})
-  }
-  next()
-})
+// router.beforeEach((to, from, next) => {
+//   console.log('路由拦截', to, from)
+//   if (to.fullPath !== '/login' && !getCookie('userId')) {
+//     router.push({ path:'/login'})
+//   }
+//   next()
+// })
 
 // 这种为compiler（模板）模式的构建vue实例的方式
 // new Vue({

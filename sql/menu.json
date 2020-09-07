@@ -1,0 +1,74 @@
+[
+  {
+    "permissionCode": "SUPER_MARKET",
+    "permissionName": "超市购物",
+    "children": null,
+    "id": "1"
+  },
+  {
+    "permissionCode": "MENU_TWO",
+    "permissionName": "品牌商城",
+    "id": "2",
+    "children": [
+      {
+        "permissionCode": "MENU_SECOND_ONE",
+        "permissionName": "养护",
+        "id": "2-1",
+        "children": [{
+          "permissionCode": "CARE_HAIR",
+          "permissionName": "养发",
+          "id": "3-1",
+          "children": null
+        },
+        {
+          "permissionCode": "CARE_FACE",
+          "permissionName": "面部护理",
+          "id": "3-2",
+          "children": null
+        },
+        {
+          "permissionCode": "BEAUTY_LEG",
+          "permissionName": "美腿",
+          "id": "3-3",
+          "children": null
+        }]
+      }, 
+      {
+        "permissionCode": "BRAND",
+        "permissionName": "大牌优惠",
+        "id": "2-2",
+        "children": null
+      }
+    ]
+  },
+  {
+    "permissionCode": "ABOUT_US",
+    "permissionName": "关于我们",
+    "id": "3",
+    "children": null
+  },
+  {
+    "permissionCode": "ORDER_MANAGE",
+    "permissionName": "订单管理",
+    "id": "4",
+    "chidren": null
+  },
+  {
+    "permissionCode": "PROJECT_LEARNING",
+    "permissionName": "项目练习",
+    "id": "5",
+    "children": [
+      {
+        "permissionCode": "ASYNC_FUNCTION",
+        "permissionName": "同步和异步方法",
+        "id": "5-1",
+        "children": null
+      },
+      {
+        "permissionCode": "COOKIE_SESSION",
+        "permissionName": "浏览器缓存",
+        "id": "5-2",
+        "children": null
+      }]
+  }
+]
